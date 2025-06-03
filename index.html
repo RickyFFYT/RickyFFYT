@@ -6,25 +6,59 @@
     <title>Dracaryn Studio</title>
     <link rel="stylesheet" href="mainStyle.css">
 </head>
-<body>
-    <header>
-        <h1>Welcome to Dracaryn Studio</h1>
-        <button id="theme-toggle">Toggle Theme</button>
-    </header>
+<body class="studio-body">
+    <canvas id="bg-lines"></canvas>
+    <div class="content-container">
+        <header>
+            <h1>Welcome to Dracaryn Studio</h1>
+            <button id="theme-toggle">Toggle Theme</button>
+        </header>
 
-    <main>
-        <section id="studio-intro">
-            <h2>About Dracaryn Studio</h2>
-            <p>Dracaryn Studio is a passionate venture into the world of freelance web development and digital creation. As a solo endeavor, I pour my heart and soul into every project, ensuring a personalized and dedicated approach.</p>
-            <p>I specialize in crafting bespoke websites tailored to your unique needs, building dynamic and engaging user interfaces, and transforming your digital visions into tangible realities. Whether you're looking for a stunning portfolio, a robust e-commerce platform, or innovative web applications, Dracaryn Studio is here to help you shine online.</p>
-            <p>My services include front-end development, UI/UX consultation, and bringing your creative ideas to the web with flair and precision.</p>
-        </section>
-    </main>
+        <main>
+            <section id="portfolio-grid">
+                <div class="portfolio-card animated-card service-card">
+                    <div class="service-icon" aria-hidden="true">🎨</div>
+                    <h2>Website UI Services</h2>
+                    <p>Modern, responsive, and beautiful user interfaces tailored to your brand and audience, ensuring a seamless user experience across all devices.</p>
+                </div>
+                <div class="portfolio-card animated-card service-card">
+                    <div class="service-icon" aria-hidden="true">💸</div>
+                    <h2>Cheap Front-End Websites</h2>
+                    <p>Get a professional, fast, and visually appealing website at an affordable price—perfect for startups, portfolios, and small businesses.</p>
+                </div>
+                <div class="portfolio-card animated-card service-card">
+                    <div class="service-icon" aria-hidden="true">🔒</div>
+                    <h2>Website Security</h2>
+                    <p>Secure your site with best practices, modern frameworks, and proactive protection against common web threats and vulnerabilities.</p>
+                </div>
+                <div class="portfolio-card animated-card" id="about-card">
+                    <h2>About</h2>
+                    <p>Dracaryn Studio is a passionate solo venture into freelance web development and digital creation, dedicated to personalized, high-quality results.</p>
+                </div>
+                <div class="portfolio-card animated-card" id="services-card">
+                    <h2>Services</h2>
+                    <ul>
+                        <li>Front-end Development</li>
+                        <li>UI/UX Consultation</li>
+                        <li>Custom Web Applications</li>
+                        <li>Portfolio & E-commerce Sites</li>
+                    </ul>
+                </div>
+                <div class="portfolio-card animated-card" id="portfolio-card">
+                    <h2>Portfolio</h2>
+                    <p>Explore my latest projects, from interactive portfolios to robust e-commerce platforms, all crafted with modern web technologies and creative flair.</p>
+                </div>
+                <div class="portfolio-card animated-card" id="contact-card">
+                    <h2>Contact</h2>
+                    <p>Ready to collaborate? Reach out to bring your digital vision to life with Dracaryn Studio.</p>
+                </div>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2025 Dracaryn Studio</p>
-    </footer>
-
+        <footer>
+            <p>&copy; 2025 Dracaryn Studio</p>
+        </footer>
+    </div>
     <script src="mainScript.js"></script>
 </body>
 </html>
