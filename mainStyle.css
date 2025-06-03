@@ -1,3 +1,56 @@
+:root {
+    --bg-color-light: #f4f4f4;
+    --text-color-light: #333;
+    --header-bg-light: #333;
+    --header-text-light: #fff;
+    --link-color-light: #007bff;
+    --section-bg-color-light: #ffffff; /* Solid color for RGBA construction */
+    --section-bg-rgba-light: rgba(255, 255, 255, 0.85);
+    --heading-color-light: #2c3e50;
+    --paragraph-color-light: #34495e;
+    --button-gradient-light: linear-gradient(135deg, #7f8cfa, #667eea);
+    --button-text-color-light: #ffffff;
+
+    --bg-color-dark: #121212; /* Darker overall background for better contrast with glass */
+    --text-color-dark: #e0e0e0;
+    --header-bg-dark: #1e1e1e;
+    --header-text-dark: #e0e0e0;
+    --link-color-dark: #bb86fc;
+    --section-bg-color-dark: #2c2c44; /* Darker, less saturated for better glass effect */
+    --section-bg-rgba-dark: rgba(44, 44, 68, 0.85); /* Corresponds to --section-bg-color-dark with alpha */
+    --heading-color-dark: #e8eaf6;   /* Light lavender for dark theme heading */
+    --paragraph-color-dark: #c5cae9; /* Lighter text for dark theme paragraph */
+    --button-gradient-dark: linear-gradient(135deg, #4e54c8, #8f94fb);
+    --button-text-color-dark: #ffffff;
+
+    /* Default to light theme */
+    --bg-color: var(--bg-color-light);
+    --text-color: var(--text-color-light);
+    --header-bg: var(--header-bg-light);
+    --header-text: var(--header-text-light);
+    --link-color: var(--link-color-light);
+    --section-bg-color: var(--section-bg-color-light); /* Kept for fallback if direct RGBA not used */
+    --current-section-bg-rgba: var(--section-bg-rgba-light);
+    --heading-color: var(--heading-color-light);
+    --paragraph-color: var(--paragraph-color-light);
+    --current-button-gradient: var(--button-gradient-light);
+    --current-button-text-color: var(--button-text-color-light);
+}
+
+body.dark-mode {
+    --bg-color: var(--bg-color-dark);
+    --text-color: var(--text-color-dark);
+    --header-bg: var(--header-bg-dark);
+    --header-text: var(--header-text-dark);
+    --link-color: var(--link-color-dark);
+    --section-bg-color: var(--section-bg-color-dark); /* Kept for fallback */
+    --current-section-bg-rgba: var(--section-bg-rgba-dark);
+    --heading-color: var(--heading-color-dark);
+    --paragraph-color: var(--paragraph-color-dark);
+    --current-button-gradient: var(--button-gradient-dark);
+    --current-button-text-color: var(--button-text-color-dark);
+}
+
 /* Basic CSS Reset */
 * {
     margin: 0;
@@ -9,14 +62,14 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4; /* A light default background */
-    color: #333; /* Default text color */
+    background-color: var(--bg-color);
+    color: var(--text-color);
     padding: 20px; /* Add some padding around the content */
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 1rem 0;
     text-align: center;
     margin-bottom: 20px;
@@ -37,4 +90,50 @@ footer {
     border-top: 1px solid #ccc;
     font-size: 0.9em;
     color: #666;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 0.75rem 1.25rem; /* Slightly increased padding */
+    background: var(--current-button-gradient);
+    color: var(--current-button-text-color);
+    border: none;
+    cursor: pointer;
+    border-radius: 8px; /* Consistent with section rounding */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+#theme-toggle:hover {
+    opacity: 0.9; /* Slightly less opacity change for gradient */
+    transform: translateY(-1px); /* Subtle lift effect */
+}
+
+#studio-intro {
+    padding: 2.5rem 1.5rem; /* Increased padding */
+    margin: 3rem auto; /* Increased margin */
+    max-width: 800px;
+    text-align: center;
+    border-radius: 12px; /* More pronounced rounding */
+    background-color: var(--current-section-bg-rgba);
+    backdrop-filter: blur(8px); /* Increased blur */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25); /* Adjusted shadow for glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border for glassmorphism */
+}
+
+#studio-intro h2 {
+    font-size: 2.5em; /* Larger font size for the heading */
+    color: var(--heading-color, var(--text-color)); /* Use a specific var or fallback */
+    margin-bottom: 1rem;
+    font-weight: 600; /* Bolder heading */
+}
+
+#studio-intro p {
+    font-size: 1.1em; /* Slightly larger paragraph text */
+    line-height: 1.7;
+    color: var(--paragraph-color, var(--text-color)); /* Use a specific var or fallback */
+    margin-bottom: 1rem;
 }
